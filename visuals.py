@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 import scipy
+import jinja2
 
 
 def get_dataframe(file) -> pd.DataFrame:
@@ -10,7 +11,8 @@ def get_dataframe(file) -> pd.DataFrame:
 
 
 def filter_dataframe(df_in) -> pd.DataFrame:
-    filtered_df = df_in[['ris_software_enum', 'metadataFormat', 'contains_software_set', 'Manual_Num_sw_records', 'Category']]
+    filtered_df = df_in[
+        ['ris_software_enum', 'metadataFormat', 'contains_software_set', 'Manual_Num_sw_records', 'Category']]
     return filtered_df
 
 
@@ -27,7 +29,6 @@ def vis_unis_with_sware(df_base):
 
 
 def vis_contains_sware_by_ris_type(df_base):
-
     cross_tab_prop = pd.crosstab(index=df_base['ris_software_enum'],
                                  columns=df_base['Category'],
                                  normalize="index").sort_values('Contains software')
@@ -40,8 +41,8 @@ def vis_contains_sware_by_ris_type(df_base):
     plt.ylabel("Repository framework software")
     plt.xlabel("Proportion of repositories")
     plt.show()
-
     chisq(cross_tab_prop=cross_tab_prop, subhead="Software records by RIS framework")
+
 
 def vis_metdata_format_by_contains_sware(df_base):
     cross_tab_prop = pd.crosstab(index=df_base['metadataFormat'],
@@ -59,9 +60,10 @@ def vis_metdata_format_by_contains_sware(df_base):
 
     chisq(cross_tab_prop=cross_tab_prop, subhead="Software records by metadata format")
 
+
 def chisq(subhead, cross_tab_prop):
     print("******************************************************\nChi-square test of independence")
-    print(subhead+'\n******************************************************')
+    print(subhead + '\n******************************************************')
     c, p, dof, expected = scipy.stats.chi2_contingency(cross_tab_prop)
     print("chi2=", c)
     print("p=", p)
@@ -82,22 +84,32 @@ def vis_unis_with_sware_barchart(df_filtered):
     plt.show()
 
 
+def russell_group_correlation():
+    russell = ["University of Birmingham", "University of Bristol", "University of Cambridge", "Cardiff University",
+               "Durham University", "University of Edinburgh", "University of Exeter", "University of Glasgow",
+               "Imperial College London", "King's College London", "University of Leeds", "University of Liverpool",
+               "London School of Economics & Political Science", "University of Manchester", "Newcastle University",
+               "University of Nottingham", "University of Oxford", "Queen Mary, University of London",
+               "Queen's University Belfast", "University of Sheffield", "University of Southampton",
+               "University College London", "University of Warwick", "University of York"]
+
+
 def main():
     data_file = '/home/domhnall/Dev/aspp/complete_dataset_manual_adjustment.csv'
     # load and prep file
     df_all_data = get_dataframe(data_file)
     df_filtered = filter_dataframe(df_all_data)
+    # vis_unis_with_sware(df_filtered)
+    # vis_unis_with_sware(df_filtered)
 
-    #vis_unis_with_sware(df_filtered)
-    #vis_unis_with_sware(df_filtered)
+    # vis software by RIS type
+    # vis_contains_sware_by_ris_type(df_filtered)
 
-    #vis software by RIS type
-    #vis_contains_sware_by_ris_type(df_filtered)
+    # vis software by metadata format
+    # vis_metdata_format_by_contains_sware(df_filtered)
 
-    #vis software by metadata format
-    #vis_metdata_format_by_contains_sware(df_filtered)
-
-    #bar chart of unis with software only
+    # bar chart of unis with software only
     vis_unis_with_sware_barchart(df_filtered)
+
 
 main()
