@@ -4,8 +4,8 @@ import scipy
 import jinja2
 
 
-def get_dataframe(file) -> pd.DataFrame:
-    df_all_data = pd.read_csv(file, header=0, index_col='name')
+def get_dataframe(file, sort_key) -> pd.DataFrame:
+    df_all_data = pd.read_csv(file, header=0, index_col=sort_key)
 
     return df_all_data
 
@@ -84,7 +84,7 @@ def vis_unis_with_sware_barchart(df_filtered):
     plt.show()
 
 
-def russell_group_correlation():
+def russell_group_correlation(df_russell):
     russell = ["University of Birmingham", "University of Bristol", "University of Cambridge", "Cardiff University",
                "Durham University", "University of Edinburgh", "University of Exeter", "University of Glasgow",
                "Imperial College London", "King's College London", "University of Leeds", "University of Liverpool",
@@ -93,12 +93,13 @@ def russell_group_correlation():
                "Queen's University Belfast", "University of Sheffield", "University of Southampton",
                "University College London", "University of Warwick", "University of York"]
 
-
+    print(df_russell.sort_values('uni_sld'))
 def main():
+    pd.set_option('display.max_rows', None)
     data_file = '/home/domhnall/Dev/aspp/complete_dataset_manual_adjustment.csv'
     # load and prep file
-    df_all_data = get_dataframe(data_file)
-    df_filtered = filter_dataframe(df_all_data)
+    #df_all_data = get_dataframe(data_file, sort_key='name')
+    #df_filtered = filter_dataframe(df_all_data)
     # vis_unis_with_sware(df_filtered)
     # vis_unis_with_sware(df_filtered)
 
@@ -109,7 +110,9 @@ def main():
     # vis_metdata_format_by_contains_sware(df_filtered)
 
     # bar chart of unis with software only
-    vis_unis_with_sware_barchart(df_filtered)
+    #vis_unis_with_sware_barchart(df_filtered)
 
-
+    # Correlate Russell Group members with s'ware
+    df_russell = get_dataframe("~/Dev/aspp/russell_sld_sware.csv", sort_key='uni_sld')
+    russell_group_correlation(df_russell)
 main()
