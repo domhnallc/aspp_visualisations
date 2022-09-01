@@ -94,6 +94,16 @@ def russell_group_correlation(df_russell):
                "University College London", "University of Warwick", "University of York"]
 
     print(df_russell.sort_values('uni_sld'))
+
+    russell_cross_tab_prop = pd.crosstab(index=df_russell['Russell_member'],
+                                 columns=df_russell['Category'],
+                                 normalize="index").sort_values('Contains software')
+
+    print(russell_cross_tab_prop)
+    russell_cross_tab_prop.plot(kind='barh',
+                        stacked=True)
+    plt.show()
+
 def main():
     pd.set_option('display.max_rows', None)
     data_file = '/home/domhnall/Dev/aspp/complete_dataset_manual_adjustment.csv'
@@ -113,6 +123,6 @@ def main():
     #vis_unis_with_sware_barchart(df_filtered)
 
     # Correlate Russell Group members with s'ware
-    df_russell = get_dataframe("~/Dev/aspp/russell_sld_sware.csv", sort_key='uni_sld')
+    df_russell = get_dataframe("./russell_sld_sware.csv", sort_key='uni_sld')
     russell_group_correlation(df_russell)
 main()
