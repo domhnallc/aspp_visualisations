@@ -12,7 +12,7 @@ def get_dataframe(file, sort_key) -> pd.DataFrame:
     return df_all_data
 
 
-def filter_dataframe(df_in) -> pd.DataFrame:
+def filter_dataframe(df_in: pd.DataFrame) -> pd.DataFrame:
     filtered_df = df_in[
         [
             "ris_software_enum",
