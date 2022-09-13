@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import scipy
 import jinja2
+import tomli
 
 
 def get_dataframe(file, sort_key) -> pd.DataFrame:
@@ -143,9 +144,23 @@ def vis_russell_group_correlation(df_russell):
 
     return russell_cross_tab_prop
 
+def get_toml(file_path: str) -> pd.DataFrame:
+    
+    with open(file_path, "rb") as toml_file:
+        data = tomli.load(toml_file)
+    
+    print(data)
+
+    df_groups = pd.DataFrame.from_dict(data, orient='index')
+
+    print(df_groups)
+
+    return df_groups
+    
+
 def main():
-    pd.set_option("display.max_rows", None)
-    data_file = "/home/domhnall/Dev/aspp/complete_dataset_manual_adjustment.csv"
+    #pd.set_option("display.max_rows", None)
+    #data_file = "/home/domhnall/Dev/aspp/complete_dataset_manual_adjustment.csv"
     # load and prep file
     # df_all_data = get_dataframe(data_file, sort_key='name')
     # df_filtered = filter_dataframe(df_all_data)
@@ -162,11 +177,14 @@ def main():
     # vis_unis_with_sware_barchart(df_filtered)
 
     # Correlate Russell Group members with s'ware
-    df_russell = get_dataframe("./russell_sld_sware.csv", sort_key="uni_sld")
-    russell_top_20_sw = df_russell.sort_values("Manual_Num_sw_records", ascending=False).head(20)
-    print("\n\nTop 20 Universities in order of number of software records in repository, and membership of Russell Group\n\n",russell_top_20_sw)
-    russell_ctp = vis_russell_group_correlation(df_russell)
-    chisq(subhead="Membership of Russell Group vs Software in repository", cross_tab_prop=russell_ctp)
+    #df_russell = get_dataframe("./russell_sld_sware.csv", sort_key="uni_sld")
+    #russell_top_20_sw = df_russell.sort_values("Manual_Num_sw_records", ascending=False).head(20)
+    #print("\n\nTop 20 Universities in order of number of software records in repository, and membership of Russell Group\n\n",russell_top_20_sw)
+    #russell_ctp = vis_russell_group_correlation(df_russell)
+    #chisq(subhead="Membership of Russell Group vs Software in repository", cross_tab_prop=russell_ctp)
+
+    # Correlate RSE groups with s'ware
+    get_toml("./groups.toml")
 
 
 main()
