@@ -5,6 +5,7 @@ import jinja2
 import tomli
 
 
+
 def get_dataframe(file, sort_key) -> pd.DataFrame:
     df_all_data = pd.read_csv(file, header=0, index_col=sort_key)
 
@@ -144,26 +145,27 @@ def vis_russell_group_correlation(df_russell):
 
     return russell_cross_tab_prop
 
-def get_toml(file_path: str) -> pd.DataFrame:
+def get_df_from_toml(file_path: str) -> pd.DataFrame:
     
     with open(file_path, "rb") as toml_file:
         data = tomli.load(toml_file)
     
-    print(data)
+    #print(data)
 
     df_groups = pd.DataFrame.from_dict(data, orient='index')
 
-    print(df_groups)
+    #print(df_groups)
 
     return df_groups
     
 
 def main():
-    #pd.set_option("display.max_rows", None)
-    #data_file = "/home/domhnall/Dev/aspp/complete_dataset_manual_adjustment.csv"
+    pd.set_option("display.max_rows", None)
+    pd.set_option("display.max_columns", None)
+    data_file = "./complete_dataset_manual_adjustment.csv"
     # load and prep file
-    # df_all_data = get_dataframe(data_file, sort_key='name')
-    # df_filtered = filter_dataframe(df_all_data)
+    df_all_data = get_dataframe(data_file, sort_key='name')
+    df_filtered = filter_dataframe(df_all_data)
     # vis_unis_with_sware(df_filtered)
     # vis_unis_with_sware(df_filtered)
 
@@ -184,7 +186,10 @@ def main():
     #chisq(subhead="Membership of Russell Group vs Software in repository", cross_tab_prop=russell_ctp)
 
     # Correlate RSE groups with s'ware
-    get_toml("./groups.toml")
+    df_rse_groups = get_df_from_toml("./groups.toml")
+    df_rse_groups = df_rse_groups[['lat', 'lon']].round(decimals=3)
+    df_sware_lat_long = pd.merge(df_filtered.rename(columns={'latitude':'lat'}), df_rse_groups, how='outer', on='lat')
+
 
 
 main()
