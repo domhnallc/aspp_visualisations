@@ -1,0 +1,741 @@
+Saved ./insts_category.pdf
+Saved ./insts_category.pdf
+\begin{tabular}{lrrr}
+\toprule
+Category &  Contains software &  Does not contain software &  No direct software search capability \\
+ris\_software\_enum &                    &                            &                                       \\
+\midrule
+QAICat            &           0.000000 &                   0.000000 &                              1.000000 \\
+equella           &           0.000000 &                   0.000000 &                              1.000000 \\
+exlibris          &           0.000000 &                   0.000000 &                              1.000000 \\
+fedora            &           0.000000 &                   0.000000 &                              1.000000 \\
+worktribe         &           0.000000 &                   0.000000 &                              1.000000 \\
+eprints           &           0.114286 &                   0.076190 &                              0.809524 \\
+dspace            &           0.222222 &                   0.148148 &                              0.629630 \\
+unknown           &           0.500000 &                   0.000000 &                              0.500000 \\
+haplo             &           0.750000 &                   0.250000 &                              0.000000 \\
+pure              &           0.826087 &                   0.043478 &                              0.130435 \\
+\bottomrule
+\end{tabular}
+
+Category           Contains software  Does not contain software  \
+ris_software_enum                                                 
+QAICat                      0.000000                   0.000000   
+equella                     0.000000                   0.000000   
+exlibris                    0.000000                   0.000000   
+fedora                      0.000000                   0.000000   
+worktribe                   0.000000                   0.000000   
+eprints                     0.114286                   0.076190   
+dspace                      0.222222                   0.148148   
+unknown                     0.500000                   0.000000   
+haplo                       0.750000                   0.250000   
+pure                        0.826087                   0.043478   
+
+Category           No direct software search capability  
+ris_software_enum                                        
+QAICat                                         1.000000  
+equella                                        1.000000  
+exlibris                                       1.000000  
+fedora                                         1.000000  
+worktribe                                      1.000000  
+eprints                                        0.809524  
+dspace                                         0.629630  
+unknown                                        0.500000  
+haplo                                          0.000000  
+pure                                           0.130435  
+******************************************************
+Chi-square test of independence
+Software records by RIS framework
+******************************************************
+chi2= 7.172563214391069
+p= 0.9885886626305176
+dof= 18
+expected=
+ [[0.24125949 0.05178169 0.70695882]
+ [0.24125949 0.05178169 0.70695882]
+ [0.24125949 0.05178169 0.70695882]
+ [0.24125949 0.05178169 0.70695882]
+ [0.24125949 0.05178169 0.70695882]
+ [0.24125949 0.05178169 0.70695882]
+ [0.24125949 0.05178169 0.70695882]
+ [0.24125949 0.05178169 0.70695882]
+ [0.24125949 0.05178169 0.70695882]
+ [0.24125949 0.05178169 0.70695882]]
+Category        Contains software  Does not contain software  \
+metadataFormat                                                 
+rioxx                    0.158730                   0.079365   
+oai_dc                   0.291262                   0.087379   
+
+Category        No direct software search capability  
+metadataFormat                                        
+rioxx                                       0.761905  
+oai_dc                                      0.621359  
+\begin{tabular}{lrrr}
+\toprule
+Category &  Contains software &  Does not contain software &  No direct software search capability \\
+metadataFormat &                    &                            &                                       \\
+\midrule
+rioxx          &           0.158730 &                   0.079365 &                              0.761905 \\
+oai\_dc         &           0.291262 &                   0.087379 &                              0.621359 \\
+\bottomrule
+\end{tabular}
+
+******************************************************
+Chi-square test of independence
+Software records by metadata format
+******************************************************
+chi2= 0.05369854347707459
+p= 0.9735079656295038
+dof= 2
+expected=
+ [[0.22499615 0.08337186 0.69163199]
+ [0.22499615 0.08337186 0.69163199]]
+                                                   ris_software_enum  \
+name                                                                   
+University of Northampton's Research Explorer                   pure   
+ResearchOnline@GCU                                              pure   
+UEL Research Repository at University of East L...             haplo   
+UDORA - University of Derby Online Research Arc...            dspace   
+SRUC - Scotland's Rural College                                 pure   
+Bournemouth University Research Online                       eprints   
+Online Research Data                                         unknown   
+University of Gloucestershire Research Repository            eprints   
+Teeside University's Research Repository                        pure   
+Edge Hill University Research Information Repos...              pure   
+University of Reading Research Data Archive                  eprints   
+Abertay Research Portal                                         pure   
+Royal Holloway - Pure                                           pure   
+UCL Discovery                                                eprints   
+Bangor University Research Portal                             dspace   
+City Research Online                                         eprints   
+Nottingham Trent Institutional Repository (IRep)             eprints   
+Ulster University's Research Portal                             pure   
+Huddersfield Research Portal                                    pure   
+e-Prints Soton                                               eprints   
+University of Brighton Research Portal                          pure   
+University of Liverpool Repository                           eprints   
+University of Dundee Online Publications                      dspace   
+Open Research Exeter                                          dspace   
+Kent Academic Repository                                     eprints   
+The University of Manchester - Institutional Re...              pure   
+University of Bath Research Portal                           eprints   
+King's Research Portal                                          pure   
+Goldsmiths Research Online                                   eprints   
+Portsmouth University Research Portal (Pure)                    pure   
+WestminsterResearch                                            haplo   
+Queen's University Research Portal                              pure   
+Apollo                                                        dspace   
+The York Research Database                                      pure   
+University of Birmingham Research Portal                        pure   
+Edinburgh Research Explorer                                     pure   
+Rothamsted Repository                                          haplo   
+Explore Bristol Research                                        pure   
+Enlighten: Research Data (University of Glasgow)             eprints   
+University of St. Andrews - Pure                                pure   
+Spiral - Imperial College Digital Repository                  dspace   
+
+                                                   metadataFormat  \
+name                                                                
+University of Northampton's Research Explorer              oai_dc   
+ResearchOnline@GCU                                         oai_dc   
+UEL Research Repository at University of East L...          rioxx   
+UDORA - University of Derby Online Research Arc...         oai_dc   
+SRUC - Scotland's Rural College                            oai_dc   
+Bournemouth University Research Online                      rioxx   
+Online Research Data                                       oai_dc   
+University of Gloucestershire Research Repository           rioxx   
+Teeside University's Research Repository                   oai_dc   
+Edge Hill University Research Information Repos...         oai_dc   
+University of Reading Research Data Archive                oai_dc   
+Abertay Research Portal                                    oai_dc   
+Royal Holloway - Pure                                      oai_dc   
+UCL Discovery                                              oai_dc   
+Bangor University Research Portal                          oai_dc   
+City Research Online                                        rioxx   
+Nottingham Trent Institutional Repository (IRep)            rioxx   
+Ulster University's Research Portal                        oai_dc   
+Huddersfield Research Portal                               oai_dc   
+e-Prints Soton                                              rioxx   
+University of Brighton Research Portal                     oai_dc   
+University of Liverpool Repository                          rioxx   
+University of Dundee Online Publications                   oai_dc   
+Open Research Exeter                                       oai_dc   
+Kent Academic Repository                                    rioxx   
+The University of Manchester - Institutional Re...         oai_dc   
+University of Bath Research Portal                         oai_dc   
+King's Research Portal                                     oai_dc   
+Goldsmiths Research Online                                  rioxx   
+Portsmouth University Research Portal (Pure)               oai_dc   
+WestminsterResearch                                         rioxx   
+Queen's University Research Portal                         oai_dc   
+Apollo                                                     oai_dc   
+The York Research Database                                    NaN   
+University of Birmingham Research Portal                   oai_dc   
+Edinburgh Research Explorer                                oai_dc   
+Rothamsted Repository                                      oai_dc   
+Explore Bristol Research                                   oai_dc   
+Enlighten: Research Data (University of Glasgow)           oai_dc   
+University of St. Andrews - Pure                           oai_dc   
+Spiral - Imperial College Digital Repository               oai_dc   
+
+                                                   contains_software_set  \
+name                                                                       
+University of Northampton's Research Explorer                         No   
+ResearchOnline@GCU                                                    No   
+UEL Research Repository at University of East L...                    No   
+UDORA - University of Derby Online Research Arc...                    No   
+SRUC - Scotland's Rural College                                       No   
+Bournemouth University Research Online                                No   
+Online Research Data                                                 NaN   
+University of Gloucestershire Research Repository                    Yes   
+Teeside University's Research Repository                              No   
+Edge Hill University Research Information Repos...                    No   
+University of Reading Research Data Archive                           No   
+Abertay Research Portal                                               No   
+Royal Holloway - Pure                                            No sets   
+UCL Discovery                                                         No   
+Bangor University Research Portal                                     No   
+City Research Online                                                 Yes   
+Nottingham Trent Institutional Repository (IRep)                      No   
+Ulster University's Research Portal                                   No   
+Huddersfield Research Portal                                          No   
+e-Prints Soton                                                        No   
+University of Brighton Research Portal                                No   
+University of Liverpool Repository                                   Yes   
+University of Dundee Online Publications                              No   
+Open Research Exeter                                                  No   
+Kent Academic Repository                                             Yes   
+The University of Manchester - Institutional Re...                    No   
+University of Bath Research Portal                                    No   
+King's Research Portal                                                No   
+Goldsmiths Research Online                                           Yes   
+Portsmouth University Research Portal (Pure)                         NaN   
+WestminsterResearch                                                   No   
+Queen's University Research Portal                               No sets   
+Apollo                                                                No   
+The York Research Database                                           NaN   
+University of Birmingham Research Portal                              No   
+Edinburgh Research Explorer                                           No   
+Rothamsted Repository                                                 No   
+Explore Bristol Research                                              No   
+Enlighten: Research Data (University of Glasgow)                      No   
+University of St. Andrews - Pure                                      No   
+Spiral - Imperial College Digital Repository                          No   
+
+                                                    Manual_Num_sw_records  \
+name                                                                        
+University of Northampton's Research Explorer                           1   
+ResearchOnline@GCU                                                      1   
+UEL Research Repository at University of East L...                      1   
+UDORA - University of Derby Online Research Arc...                      2   
+SRUC - Scotland's Rural College                                         2   
+Bournemouth University Research Online                                  2   
+Online Research Data                                                    2   
+University of Gloucestershire Research Repository                       4   
+Teeside University's Research Repository                                4   
+Edge Hill University Research Information Repos...                      4   
+University of Reading Research Data Archive                             5   
+Abertay Research Portal                                                 5   
+Royal Holloway - Pure                                                   6   
+UCL Discovery                                                           7   
+Bangor University Research Portal                                       8   
+City Research Online                                                    9   
+Nottingham Trent Institutional Repository (IRep)                       10   
+Ulster University's Research Portal                                    10   
+Huddersfield Research Portal                                           13   
+e-Prints Soton                                                         13   
+University of Brighton Research Portal                                 13   
+University of Liverpool Repository                                     16   
+University of Dundee Online Publications                               22   
+Open Research Exeter                                                   23   
+Kent Academic Repository                                               24   
+The University of Manchester - Institutional Re...                     25   
+University of Bath Research Portal                                     25   
+King's Research Portal                                                 26   
+Goldsmiths Research Online                                             28   
+Portsmouth University Research Portal (Pure)                           29   
+WestminsterResearch                                                    31   
+Queen's University Research Portal                                     39   
+Apollo                                                                 45   
+The York Research Database                                             53   
+University of Birmingham Research Portal                               65   
+Edinburgh Research Explorer                                            66   
+Rothamsted Repository                                                  76   
+Explore Bristol Research                                               84   
+Enlighten: Research Data (University of Glasgow)                      117   
+University of St. Andrews - Pure                                      207   
+Spiral - Imperial College Digital Repository                          286   
+
+                                                             Category  \
+name                                                                    
+University of Northampton's Research Explorer       Contains software   
+ResearchOnline@GCU                                  Contains software   
+UEL Research Repository at University of East L...  Contains software   
+UDORA - University of Derby Online Research Arc...  Contains software   
+SRUC - Scotland's Rural College                     Contains software   
+Bournemouth University Research Online              Contains software   
+Online Research Data                                Contains software   
+University of Gloucestershire Research Repository   Contains software   
+Teeside University's Research Repository            Contains software   
+Edge Hill University Research Information Repos...  Contains software   
+University of Reading Research Data Archive         Contains software   
+Abertay Research Portal                             Contains software   
+Royal Holloway - Pure                               Contains software   
+UCL Discovery                                       Contains software   
+Bangor University Research Portal                   Contains software   
+City Research Online                                Contains software   
+Nottingham Trent Institutional Repository (IRep)    Contains software   
+Ulster University's Research Portal                 Contains software   
+Huddersfield Research Portal                        Contains software   
+e-Prints Soton                                      Contains software   
+University of Brighton Research Portal              Contains software   
+University of Liverpool Repository                  Contains software   
+University of Dundee Online Publications            Contains software   
+Open Research Exeter                                Contains software   
+Kent Academic Repository                            Contains software   
+The University of Manchester - Institutional Re...  Contains software   
+University of Bath Research Portal                  Contains software   
+King's Research Portal                              Contains software   
+Goldsmiths Research Online                          Contains software   
+Portsmouth University Research Portal (Pure)        Contains software   
+WestminsterResearch                                 Contains software   
+Queen's University Research Portal                  Contains software   
+Apollo                                              Contains software   
+The York Research Database                          Contains software   
+University of Birmingham Research Portal            Contains software   
+Edinburgh Research Explorer                         Contains software   
+Rothamsted Repository                               Contains software   
+Explore Bristol Research                            Contains software   
+Enlighten: Research Data (University of Glasgow)    Contains software   
+University of St. Andrews - Pure                    Contains software   
+Spiral - Imperial College Digital Repository        Contains software   
+
+                                                   RSE_group  
+name                                                          
+University of Northampton's Research Explorer             no  
+ResearchOnline@GCU                                        no  
+UEL Research Repository at University of East L...        no  
+UDORA - University of Derby Online Research Arc...        no  
+SRUC - Scotland's Rural College                           no  
+Bournemouth University Research Online                    no  
+Online Research Data                                     yes  
+University of Gloucestershire Research Repository         no  
+Teeside University's Research Repository                  no  
+Edge Hill University Research Information Repos...        no  
+University of Reading Research Data Archive              yes  
+Abertay Research Portal                                   no  
+Royal Holloway - Pure                                     no  
+UCL Discovery                                            yes  
+Bangor University Research Portal                         no  
+City Research Online                                      no  
+Nottingham Trent Institutional Repository (IRep)          no  
+Ulster University's Research Portal                       no  
+Huddersfield Research Portal                              no  
+e-Prints Soton                                           yes  
+University of Brighton Research Portal                    no  
+University of Liverpool Repository                        no  
+University of Dundee Online Publications                  no  
+Open Research Exeter                                     yes  
+Kent Academic Repository                                  no  
+The University of Manchester - Institutional Re...       yes  
+University of Bath Research Portal                       yes  
+King's Research Portal                                   yes  
+Goldsmiths Research Online                                no  
+Portsmouth University Research Portal (Pure)              no  
+WestminsterResearch                                       no  
+Queen's University Research Portal                       yes  
+Apollo                                                   yes  
+The York Research Database                                no  
+University of Birmingham Research Portal                 yes  
+Edinburgh Research Explorer                              yes  
+Rothamsted Repository                                     no  
+Explore Bristol Research                                 yes  
+Enlighten: Research Data (University of Glasgow)         yes  
+University of St. Andrews - Pure                         yes  
+Spiral - Imperial College Digital Repository             yes  
+
+
+Top 20 Universities in order of number of software records in repository, and membership of Russell Group
+
+             Russell_member  Manual_Num_sw_records           Category
+uni_sld                                                             
+imperial               yes                    286  Contains software
+st-andrews              no                    207  Contains software
+gla                    yes                    117  Contains software
+bris                   yes                     84  Contains software
+rothamsted              no                     76  Contains software
+ed                     yes                     66  Contains software
+bham                   yes                     65  Contains software
+york                   yes                     53  Contains software
+cam                    yes                     45  Contains software
+qub                    yes                     39  Contains software
+westminster             no                     31  Contains software
+port                    no                     29  Contains software
+gold                    no                     28  Contains software
+kcl                    yes                     26  Contains software
+manchester             yes                     25  Contains software
+bath                    no                     25  Contains software
+kent                    no                     24  Contains software
+exeter                 yes                     23  Contains software
+dundee                  no                     22  Contains software
+liverpool              yes                     16  Contains software
+              Russell_member  Manual_Num_sw_records  \
+uni_sld                                               
+abdn                      no                      0   
+abertay                   no                      5   
+alt                       no                      0   
+anglia                    no                      0   
+aston                     no                      0   
+bangor                    no                      8   
+bath                      no                     25   
+bathspa                   no                      0   
+bbk                       no                      0   
+bcu                       no                      0   
+bgro                      no                      0   
+bham                     yes                     65   
+bolton                    no                      0   
+bournemouth               no                      2   
+brad/                     no                      0   
+brighton                  no                     13   
+bris                     yes                     84   
+brookes                   no                      0   
+brunel                    no                      0   
+buckingham                no                      0   
+bucks                     no                      0   
+cam                      yes                     45   
+canterbury                no                      0   
+cardiff                  yes                      0   
+ceda                      no                      0   
+chesterrep                no                      0   
+chi/                      no                      0   
+city                      no                      9   
+coventry                  no                      0   
+cranfield                 no                      0   
+cssd/                     no                      0   
+cumbria                   no                      0   
+derby                     no                      2   
+dmu                       no                      0   
+dundee                    no                     22   
+dur                      yes                      0   
+ed                       yes                     66   
+edgehill                  no                      4   
+eqmu/                     no                      0   
+essex                     no                      0   
+exeter                   yes                     23   
+falmouth                  no                      0   
+gcu                       no                      1   
+gla                      yes                    117   
+glos                      no                      4   
+glyndwr                   no                      0   
+gold                      no                     28   
+gre                       no                      0   
+gsa                       no                      0   
+hau                       no                      0   
+herts                     no                      0   
+hope                      no                      0   
+hud                       no                     13   
+hull-                     no                      0   
+ids                       no                      0   
+imperial                 yes                    286   
+ioe                       no                      0   
+kcl                      yes                     26   
+keele                     no                      0   
+kent                      no                     24   
+kingston                  no                      0   
+lancs                     no                      0   
+lau                       no                      0   
+lbslondon                 no                      0   
+leedsbeckett              no                      0   
+lincoln                   no                      0   
+liverpool                yes                     16   
+ljmu                      no                      0   
+londonmet                 no                      0   
+lse                      yes                      0   
+lshtm                     no                      0   
+lstmed                    no                      0   
+man                       no                      0   
+manchester               yes                     25   
+marjon                    no                      0   
+mdx                       no                      0   
+mmu                       no                      0   
+napier                    no                      0   
+ncl                       no                      0   
+ncrm                      no                      0   
+nerc                      no                      0   
+newman                    no                      0   
+northampton               no                      1   
+northumbria               no                      0   
+nottingham               yes                      0   
+ntu                       no                     10   
+open                      no                      0   
+openlsbu                  no                      0   
+opensurrey                no                      0   
+ox                       yes                      0   
+plymouth                  no                      0   
+plymsea                   no                      0   
+port                      no                     29   
+qmul                     yes                      0   
+qub                      yes                     39   
+rau                       no                      0   
+rave                      no                      0   
+rca                       no                      0   
+rcm                       no                      0   
+reading                   no                      5   
+rgu-                      no                      0   
+rl                        no                      0   
+roehampton                no                      0   
+rothamsted                no                     76   
+royalholloway             no                      6   
+rvc                       no                      0   
+salford                   no                      0   
+sas                       no                      0   
+sgul                      no                      0   
+shef                      no                      2   
+shu                       no                      0   
+soas                      no                      0   
+solent/                   no                      0   
+soton                     no                     13   
+sruc                      no                      2   
+st-andrews                no                    207   
+staffs                    no                      0   
+stfc/repub                no                      0   
+stir/                     no                      0   
+stmarys                   no                      0   
+strath                    no                      0   
+sunderland                no                      0   
+surrey                    no                      0   
+sussex                    no                      0   
+swan                      no                      0   
+tees                      no                      4   
+ual                       no                      0   
+uca                       no                      0   
+ucl                      yes                      7   
+uclan                     no                      0   
+uea                       no                      0   
+uel                       no                      1   
+uhblibrary                no                      0   
+ulster                    no                     10   
+uobrep                    no                      0   
+uwe-                      no                      0   
+uwl                       no                      0   
+uwtsd                     no                      0   
+warwick                  yes                      0   
+westminster               no                     31   
+whiterose                yes                      0   
+winchester                no                      0   
+wlv                       no                      0   
+worc                      no                      0   
+writtle                   no                      0   
+york                     yes                     53   
+yorksj                    no                      0   
+
+                                           Category  
+uni_sld                                              
+abdn           No direct software search capability  
+abertay                           Contains software  
+alt            No direct software search capability  
+anglia         No direct software search capability  
+aston          No direct software search capability  
+bangor                            Contains software  
+bath                              Contains software  
+bathspa        No direct software search capability  
+bbk            No direct software search capability  
+bcu            No direct software search capability  
+bgro           No direct software search capability  
+bham                              Contains software  
+bolton         No direct software search capability  
+bournemouth                       Contains software  
+brad/          No direct software search capability  
+brighton                          Contains software  
+bris                              Contains software  
+brookes        No direct software search capability  
+brunel         No direct software search capability  
+buckingham                Does not contain software  
+bucks          No direct software search capability  
+cam                               Contains software  
+canterbury                Does not contain software  
+cardiff        No direct software search capability  
+ceda           No direct software search capability  
+chesterrep                Does not contain software  
+chi/           No direct software search capability  
+city                              Contains software  
+coventry       No direct software search capability  
+cranfield                 Does not contain software  
+cssd/          No direct software search capability  
+cumbria        No direct software search capability  
+derby                             Contains software  
+dmu            No direct software search capability  
+dundee                            Contains software  
+dur            No direct software search capability  
+ed                                Contains software  
+edgehill                          Contains software  
+eqmu/          No direct software search capability  
+essex          No direct software search capability  
+exeter                            Contains software  
+falmouth       No direct software search capability  
+gcu                               Contains software  
+gla                               Contains software  
+glos                              Contains software  
+glyndwr        No direct software search capability  
+gold                              Contains software  
+gre            No direct software search capability  
+gsa            No direct software search capability  
+hau            No direct software search capability  
+herts          No direct software search capability  
+hope           No direct software search capability  
+hud                               Contains software  
+hull-          No direct software search capability  
+ids            No direct software search capability  
+imperial                          Contains software  
+ioe            No direct software search capability  
+kcl                               Contains software  
+keele          No direct software search capability  
+kent                              Contains software  
+kingston       No direct software search capability  
+lancs          No direct software search capability  
+lau            No direct software search capability  
+lbslondon      No direct software search capability  
+leedsbeckett              Does not contain software  
+lincoln        No direct software search capability  
+liverpool                         Contains software  
+ljmu           No direct software search capability  
+londonmet      No direct software search capability  
+lse            No direct software search capability  
+lshtm          No direct software search capability  
+lstmed         No direct software search capability  
+man            No direct software search capability  
+manchester                        Contains software  
+marjon         No direct software search capability  
+mdx            No direct software search capability  
+mmu            No direct software search capability  
+napier         No direct software search capability  
+ncl            No direct software search capability  
+ncrm           No direct software search capability  
+nerc           No direct software search capability  
+newman         No direct software search capability  
+northampton                       Contains software  
+northumbria    No direct software search capability  
+nottingham     No direct software search capability  
+ntu                               Contains software  
+open           No direct software search capability  
+openlsbu                  Does not contain software  
+opensurrey     No direct software search capability  
+ox             No direct software search capability  
+plymouth       No direct software search capability  
+plymsea        No direct software search capability  
+port                              Contains software  
+qmul           No direct software search capability  
+qub                               Contains software  
+rau            No direct software search capability  
+rave           No direct software search capability  
+rca            No direct software search capability  
+rcm            No direct software search capability  
+reading                           Contains software  
+rgu-           No direct software search capability  
+rl             No direct software search capability  
+roehampton     No direct software search capability  
+rothamsted                        Contains software  
+royalholloway                     Contains software  
+rvc            No direct software search capability  
+salford        No direct software search capability  
+sas            No direct software search capability  
+sgul                      Does not contain software  
+shef                              Contains software  
+shu            No direct software search capability  
+soas           No direct software search capability  
+solent/        No direct software search capability  
+soton                             Contains software  
+sruc                              Contains software  
+st-andrews                        Contains software  
+staffs         No direct software search capability  
+stfc/repub     No direct software search capability  
+stir/          No direct software search capability  
+stmarys        No direct software search capability  
+strath         No direct software search capability  
+sunderland                Does not contain software  
+surrey         No direct software search capability  
+sussex         No direct software search capability  
+swan                      Does not contain software  
+tees                              Contains software  
+ual            No direct software search capability  
+uca            No direct software search capability  
+ucl                               Contains software  
+uclan          No direct software search capability  
+uea                       Does not contain software  
+uel                               Contains software  
+uhblibrary     No direct software search capability  
+ulster                            Contains software  
+uobrep                    Does not contain software  
+uwe-           No direct software search capability  
+uwl            No direct software search capability  
+uwtsd          No direct software search capability  
+warwick        No direct software search capability  
+westminster                       Contains software  
+whiterose      No direct software search capability  
+winchester                Does not contain software  
+wlv            No direct software search capability  
+worc           No direct software search capability  
+writtle                   Does not contain software  
+york                              Contains software  
+yorksj         No direct software search capability  
+Category        Contains software  Does not contain software  \
+Russell_member                                                 
+no                       0.222222                   0.103175   
+yes                      0.619048                   0.000000   
+
+Category        No direct software search capability  
+Russell_member                                        
+no                                          0.674603  
+yes                                         0.380952  
+\begin{tabular}{lrrr}
+\toprule
+Category &  Contains software &  Does not contain software &  No direct software search capability \\
+Russell\_member &                    &                            &                                       \\
+\midrule
+no             &           0.222222 &                   0.103175 &                              0.674603 \\
+yes            &           0.619048 &                   0.000000 &                              0.380952 \\
+\bottomrule
+\end{tabular}
+
+******************************************************
+Chi-square test of independence
+Membership of Russell Group vs Software in repository
+******************************************************
+chi2= 0.37204872018320745
+p= 0.8302533696874488
+dof= 2
+expected=
+ [[0.42063492 0.0515873  0.52777778]
+ [0.42063492 0.0515873  0.52777778]]
+Index(['ris_software_enum', 'metadataFormat', 'contains_software_set',
+       'Manual_Num_sw_records', 'Category', 'RSE_group'],
+      dtype='object')
+Category   Contains software  Does not contain software  \
+RSE_group                                                 
+no                  0.187970                   0.097744   
+yes                 0.421053                   0.026316   
+
+Category   No direct software search capability  
+RSE_group                                        
+no                                     0.714286  
+yes                                    0.552632  
+\begin{tabular}{lrrr}
+\toprule
+Category &  Contains software &  Does not contain software &  No direct software search capability \\
+RSE\_group &                    &                            &                                       \\
+\midrule
+no        &           0.187970 &                   0.097744 &                              0.714286 \\
+yes       &           0.421053 &                   0.026316 &                              0.552632 \\
+\bottomrule
+\end{tabular}
+
+******************************************************
+Chi-square test of independence
+RSE Groups vs sware records
+******************************************************
+chi2= 0.15095652588494482
+p= 0.9272998870859169
+dof= 2
+expected=
+ [[0.30451128 0.06203008 0.63345865]
+ [0.30451128 0.06203008 0.63345865]]
