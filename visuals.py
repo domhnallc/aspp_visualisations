@@ -20,6 +20,7 @@ def filter_dataframe(df_in: pd.DataFrame) -> pd.DataFrame:
             "contains_software_set",
             "Manual_Num_sw_records",
             "Category",
+            "RSE_group"
         ]
     ]
     return filtered_df
@@ -157,6 +158,17 @@ def get_df_from_toml(file_path: str) -> pd.DataFrame:
     #print(df_groups)
 
     return df_groups
+
+def correlate_sware_rse_groups(df: pd.DataFrame):
+
+    cross_tab_prop = pd.crosstab(
+        index=df["RSE_group"],
+        columns=df["Category"],
+        normalize="index",
+    ).sort_values("RSE_group")
+    print(cross_tab_prop)
+
+    return cross_tab_prop
     
 
 def main():
@@ -186,10 +198,10 @@ def main():
     #chisq(subhead="Membership of Russell Group vs Software in repository", cross_tab_prop=russell_ctp)
 
     # Correlate RSE groups with s'ware
-    df_rse_groups = get_df_from_toml("./groups.toml")
-    df_rse_groups = df_rse_groups[['lat', 'lon']].round(decimals=3)
-    df_sware_lat_long = pd.merge(df_filtered.rename(columns={'latitude':'lat'}), df_rse_groups, how='outer', on='lat')
-
+    print(df_filtered.keys())
+    df_rse_groups = df_filtered[['RSE_group','Category']]
+    groups_cross_tab = correlate_sware_rse_groups(df_rse_groups)
+    chisq(cross_tab_prop=groups_cross_tab, subhead="RSE Groups vs sware records")
 
 
 main()
