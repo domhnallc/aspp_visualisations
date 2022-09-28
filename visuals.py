@@ -158,6 +158,20 @@ def vis_crosstab_heatmap(crosstab: pd.crosstab, title: str):
     plt.title(title)
     sns.heatmap(crosstab, cmap='crest')
     plt.show()
+
+def vis_cumulative_sware_recs(df_filtered):
+    df_sware_unis = df_filtered.sort_values(by=['Manual_Num_sw_records'], ascending=[False]).query("Manual_Num_sw_records >0")
+    df_sware_unis['cumul_percent'] = 100 * (df_sware_unis['Manual_Num_sw_records'].cumsum()/df_sware_unis['Manual_Num_sw_records'].sum()) 
+    df_sware_unis.reset_index(drop=True, inplace=True)
+    print(df_sware_unis['cumul_percent'])
+    df_sware_unis['cumul_percent'].plot(kind="line")
+    plt.grid(which="major", linestyle="-", linewidth="0.5", color="black")
+    plt.grid(which="minor", linestyle=":", linewidth="0.5", color="black")
+    plt.minorticks_on
+    plt.xlabel("Rank number of institutes in order of quantity of software (high-low)")
+    plt.ylabel("Cumulative percentage of all software records")
+    plt.show()
+
     
 def main():
     pd.set_option("display.max_rows", None)
@@ -166,9 +180,11 @@ def main():
     # load and prep file
     df_all_data = get_dataframe(data_file, sort_key='name')
     df_filtered = filter_dataframe(df_all_data)
-    vis_unis_with_sware(df_filtered)
-    vis_unis_with_sware(df_filtered)
 
+    # produce cumulutative curve of 
+    vis_cumulative_sware_recs(df_filtered)
+    vis_unis_with_sware(df_filtered)
+    '''
     # vis software by RIS type
     vis_contains_sware_by_ris_type(df_filtered)
 
@@ -192,5 +208,6 @@ def main():
     groups_cross_tab = correlate_sware_rse_groups(df_rse_groups)
     chisq(cross_tab_prop=groups_cross_tab, subhead="RSE Groups vs sware records")
     vis_crosstab_heatmap(groups_cross_tab, "Heatmap of cross tabulation between RSE Group present in Institute and sofware records in repository.")
-
+    '''
 main()
+
