@@ -50,7 +50,8 @@ def vis_contains_sware_by_ris_type(df_base):
         normalize="index",
     ).sort_values("Contains software")
 
-    
+    counts = df_base.groupby(['ris_software_enum'])size()
+    print("\n\nCOUNTS PER RIS TYPE\n",counts, "\n\n\n")
 
     print(cross_tab_prop.to_latex())
     print(cross_tab_prop)
