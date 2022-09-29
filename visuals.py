@@ -50,6 +50,8 @@ def vis_contains_sware_by_ris_type(df_base):
         normalize="index",
     ).sort_values("Contains software")
 
+    
+
     print(cross_tab_prop.to_latex())
     print(cross_tab_prop)
 
@@ -180,14 +182,14 @@ def main():
     # load and prep file
     df_all_data = get_dataframe(data_file, sort_key='name')
     df_filtered = filter_dataframe(df_all_data)
-
+    '''
     # produce cumulutative curve of 
     vis_cumulative_sware_recs(df_filtered)
     vis_unis_with_sware(df_filtered)
     '''
     # vis software by RIS type
     vis_contains_sware_by_ris_type(df_filtered)
-
+'''
     # vis software by metadata format
     vis_metdata_format_by_contains_sware(df_filtered)
 
@@ -208,6 +210,6 @@ def main():
     groups_cross_tab = correlate_sware_rse_groups(df_rse_groups)
     chisq(cross_tab_prop=groups_cross_tab, subhead="RSE Groups vs sware records")
     vis_crosstab_heatmap(groups_cross_tab, "Heatmap of cross tabulation between RSE Group present in Institute and sofware records in repository.")
-    '''
+'''
 main()
 
