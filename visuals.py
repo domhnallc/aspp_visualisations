@@ -50,7 +50,7 @@ def vis_contains_sware_by_ris_type(df_base):
         normalize="index",
     ).sort_values("Contains software")
 
-    counts = df_base.groupby(['ris_software_enum'])size()
+    counts = df_base.groupby(['ris_software_enum']).size()
     print("\n\nCOUNTS PER RIS TYPE\n",counts, "\n\n\n")
 
     print(cross_tab_prop.to_latex())
@@ -74,6 +74,8 @@ def vis_metdata_format_by_contains_sware(df_base):
     print(cross_tab_prop)
 
     print(cross_tab_prop.to_latex())
+    counts = df_base.groupby(['metadataFormat']).size()
+    print("\n\nCOUNTS PER METADATA TYPE\n",counts, "\n\n\n")
     cross_tab_prop.plot(kind="barh", stacked=True)
     plt.title(
         "Proportion of repositories that (a) contain software records,\n (b) contain no software records but "
@@ -126,6 +128,9 @@ def vis_russell_group_correlation(df_russell):
     russell_cross_tab_prop.plot(kind="barh", stacked=True)
     plt.title("Crosstabulation of membership of Russell group with software records in repository.")
     plt.show()
+
+    counts = df_russell.groupby(['Russell_member']).size()
+    print("\n\nCOUNTS PER MEMBERSHIP\n",counts, "\n\n\n")
 
     return russell_cross_tab_prop
 
@@ -187,12 +192,13 @@ def main():
     # produce cumulutative curve of 
     vis_cumulative_sware_recs(df_filtered)
     vis_unis_with_sware(df_filtered)
-    '''
+    
     # vis software by RIS type
     vis_contains_sware_by_ris_type(df_filtered)
-'''
+
     # vis software by metadata format
     vis_metdata_format_by_contains_sware(df_filtered)
+    '''
 
     # bar chart of unis with software only
     vis_unis_with_sware_barchart(df_filtered)
@@ -204,7 +210,7 @@ def main():
     russell_ctp = vis_russell_group_correlation(df_russell)
     chisq(subhead="Membership of Russell Group vs Software in repository", cross_tab_prop=russell_ctp)
     vis_crosstab_heatmap(russell_ctp, "Heatmap of cross tabulation between Russell Group Membership and software records in repository.")
-
+'''
     # Correlate RSE groups with s'ware
     print(df_filtered.keys())
     df_rse_groups = df_filtered[['RSE_group','Category']]
