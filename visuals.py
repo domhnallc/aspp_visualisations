@@ -3,6 +3,11 @@ import pandas as pd
 import scipy
 import jinja2
 
+'''Helper functions'''
+def build_df_from_json(json_file) -> pd.DataFrame:
+    df = pd.read_json(json_file)
+
+    return df
 
 def get_dataframe(file, sort_key) -> pd.DataFrame:
     df_all_data = pd.read_csv(file, header=0, index_col=sort_key)
@@ -23,6 +28,16 @@ def filter_dataframe(df_in: pd.DataFrame) -> pd.DataFrame:
     return filtered_df
 
 
+#Table 3 No. of repositories per RIS type.
+def analyse_endpoint_errors(core_endpoints_sets_df):
+
+    # group endpoints by error type
+    endpoints_by_error = core_endpoints_sets_df.groupby(['Error'], sort=True)
+    # Count endpoints by error type
+    print(endpoints_by_error.count())
+
+
+# FIGURE 2
 def vis_unis_with_sware(df_base):
     vals = df_base.groupby("Category").size()
     explode = [0.2, 0, 0]
@@ -34,18 +49,18 @@ def vis_unis_with_sware(df_base):
     plt.pie(vals, labels=labels, autopct="%1.1f%%", explode=explode)
     plt.title("Software contained in \nUK Academic Institutional Repositories")
     plt.axis("equal")
-    plt.savefig("/home/domhnall/Dev/aspp/visualisation/insts_category.pdf")
-    print("Saved /home/domhnall/Dev/aspp/visualisation/insts_category.pdf")
-    # plt.show()
+    plt.savefig("./visualisation/insts_category.pdf")
+    print("Saved ./visualisation/insts_category.pdf")
+    plt.show()
 
-
+# TABLE 3 and FIG 5
 def vis_contains_sware_by_ris_type(df_base):
     cross_tab_prop = pd.crosstab(
         index=df_base["ris_software_enum"],
         columns=df_base["Category"],
         normalize="index",
     ).sort_values("Contains software")
-    print(cross_tab_prop)
+    print(cross_tab_prop) #TBL 3
 
     cross_tab_prop.plot(kind="barh", stacked=True)
     plt.title(
@@ -54,10 +69,10 @@ def vis_contains_sware_by_ris_type(df_base):
     )
     plt.ylabel("Repository framework software")
     plt.xlabel("Proportion of repositories")
-    plt.show()
+    plt.show() #FIG 5
     chisq(cross_tab_prop=cross_tab_prop, subhead="Software records by RIS framework")
 
-
+#FIG 6
 def vis_metdata_format_by_contains_sware(df_base):
     cross_tab_prop = pd.crosstab(
         index=df_base["metadataFormat"], columns=df_base["Category"], normalize="index"
@@ -87,7 +102,7 @@ def chisq(subhead, cross_tab_prop):
     print("dof=", dof)
     print("expected=\n", expected)
 
-
+#Figure 3. Software records per institute containing software
 def vis_unis_with_sware_barchart(df_filtered):
     df_sware_unis = df_filtered.query("Manual_Num_sw_records >0")
     print(df_sware_unis)
@@ -97,12 +112,13 @@ def vis_unis_with_sware_barchart(df_filtered):
     plt.grid(which="major", linestyle="-", linewidth="0.5", color="black")
     plt.grid(which="minor", linestyle=":", linewidth="0.25", color="black")
     plt.minorticks_on
-    plt.savefig("/home/domhnall/Dev/aspp/visualisation/sware_recs_per_inst.pdf")
+    plt.savefig("./visualisation/sware_recs_per_inst.pdf")
     plt.show()
 
-
+#Figure 7. Crosstabulation of membership of Russell group with software records in repository.
+#Table 5. Proportional cross-tabulated RSE-group at institution with software records
 def vis_russell_group_correlation(df_russell):
-    russell = [
+    russell_members = [
         "University of Birmingham",
         "University of Bristol",
         "University of Cambridge",
@@ -137,7 +153,7 @@ def vis_russell_group_correlation(df_russell):
         normalize="index",
     ).sort_values("Contains software")
 
-    print(russell_cross_tab_prop)
+    print(russell_cross_tab_prop) #TBL 5
     russell_cross_tab_prop.plot(kind="barh", stacked=True)
     plt.show()
 
@@ -145,30 +161,36 @@ def vis_russell_group_correlation(df_russell):
 
 def main():
     pd.set_option("display.max_rows", None)
-    data_file = "/home/domhnall/Dev/aspp/complete_dataset_manual_adjustment.csv"
+    data_file = "./complete_dataset_manual_adjustment.csv"
+
+
+    # Count URLs per error type
+    core_endpoints_sets_postCorrection_df = build_df_from_json('./results/Aug-11-2022_152911_sets_postcorrection.json')
+    analyse_endpoint_errors(core_endpoints_sets_postCorrection_df)
+
     # load and prep file
     df_all_data = get_dataframe(data_file, sort_key='name')
     df_filtered = filter_dataframe(df_all_data)
-    # vis_unis_with_sware(df_filtered)
-    # vis_unis_with_sware(df_filtered)
+
+    #Unis with software in repository
+    vis_unis_with_sware(df_filtered)
 
     # vis software by RIS type
-    # vis_contains_sware_by_ris_type(df_filtered)
+    vis_contains_sware_by_ris_type(df_filtered)
 
     # vis software by metadata format
-    # vis_metdata_format_by_contains_sware(df_filtered)
+    vis_metdata_format_by_contains_sware(df_filtered)
 
     # bar chart of unis with software only
-    # vis_unis_with_sware_barchart(df_filtered)
+    vis_unis_with_sware_barchart(df_filtered)
 
     # Correlate Russell Group members with s'ware
-    #df_russell = get_dataframe("./russell_sld_sware.csv", sort_key="uni_sld")
+    df_russell = get_dataframe("./russell_sld_sware.csv", sort_key="uni_sld")
     #russell_top_20_sw = df_russell.sort_values("Manual_Num_sw_records", ascending=False).head(20)
     #print("\n\nTop 20 Universities in order of number of software records in repository, and membership of Russell Group\n\n",russell_top_20_sw)
-    #russell_ctp = vis_russell_group_correlation(df_russell)
-    #chisq(subhead="Membership of Russell Group vs Software in repository", cross_tab_prop=russell_ctp)
+    russell_ctp = vis_russell_group_correlation(df_russell)
+    chisq(subhead="Membership of Russell Group vs Software in repository", cross_tab_prop=russell_ctp)
     
-    rse_groups("./rse_groups.toml")
 
 
 main()
