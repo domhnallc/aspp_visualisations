@@ -162,19 +162,13 @@ def main():
     # vis_unis_with_sware_barchart(df_filtered)
 
     # Correlate Russell Group members with s'ware
-    df_russell = get_dataframe("./russell_sld_sware.csv", sort_key="uni_sld")
-    russell_top_20_sw = df_russell.sort_values("Manual_Num_sw_records", ascending=False).head(20)
-<<<<<<< HEAD
+    #df_russell = get_dataframe("./russell_sld_sware.csv", sort_key="uni_sld")
+    #russell_top_20_sw = df_russell.sort_values("Manual_Num_sw_records", ascending=False).head(20)
     #print("\n\nTop 20 Universities in order of number of software records in repository, and membership of Russell Group\n\n",russell_top_20_sw)
-    russell_ctp = vis_russell_group_correlation(df_russell)
+    #russell_ctp = vis_russell_group_correlation(df_russell)
     #chisq(subhead="Membership of Russell Group vs Software in repository", cross_tab_prop=russell_ctp)
     
     rse_groups("./rse_groups.toml")
-=======
-    print("\n\nTop 20 Universities in order of number of software records in repository, and membership of Russell Group\n\n",russell_top_20_sw)
-    russell_ctp = vis_russell_group_correlation(df_russell)
-    chisq(subhead="Membership of Russell Group vs Software in repository", cross_tab_prop=russell_ctp)
->>>>>>> a253e1830c8fb7cd2717855688279db38a5ca0c8
 
 
 main()
