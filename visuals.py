@@ -2,8 +2,6 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import scipy
 import jinja2
-import tomli
-import re
 
 
 def get_dataframe(file, sort_key) -> pd.DataFrame:
@@ -145,14 +143,6 @@ def vis_russell_group_correlation(df_russell):
 
     return russell_cross_tab_prop
 
-def rse_groups(toml_file):
-
-    with open(toml_file, mode='rb') as fp:
-        rse_groups = tomli.load(fp)
-    print(rse_groups)
-    for group in rse_groups:
-        print(group[0][0])
-    # re.search(r'\.(.*?)\.ac\.uk', s).group(1)
 def main():
     pd.set_option("display.max_rows", None)
     data_file = "/home/domhnall/Dev/aspp/complete_dataset_manual_adjustment.csv"
@@ -174,11 +164,17 @@ def main():
     # Correlate Russell Group members with s'ware
     df_russell = get_dataframe("./russell_sld_sware.csv", sort_key="uni_sld")
     russell_top_20_sw = df_russell.sort_values("Manual_Num_sw_records", ascending=False).head(20)
+<<<<<<< HEAD
     #print("\n\nTop 20 Universities in order of number of software records in repository, and membership of Russell Group\n\n",russell_top_20_sw)
     russell_ctp = vis_russell_group_correlation(df_russell)
     #chisq(subhead="Membership of Russell Group vs Software in repository", cross_tab_prop=russell_ctp)
     
     rse_groups("./rse_groups.toml")
+=======
+    print("\n\nTop 20 Universities in order of number of software records in repository, and membership of Russell Group\n\n",russell_top_20_sw)
+    russell_ctp = vis_russell_group_correlation(df_russell)
+    chisq(subhead="Membership of Russell Group vs Software in repository", cross_tab_prop=russell_ctp)
+>>>>>>> a253e1830c8fb7cd2717855688279db38a5ca0c8
 
 
 main()
