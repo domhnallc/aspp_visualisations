@@ -106,13 +106,13 @@ def chisq(subhead, cross_tab_prop):
 def vis_unis_with_sware_barchart(df_filtered):
     df_sware_unis = df_filtered.query("Manual_Num_sw_records >0")
     print(df_sware_unis)
-    df_sware_unis.plot(kind="barh")
+    df_sware_unis.sort_values(ascending=False, by="Manual_Num_sw_records").plot(kind="bar")
     plt.title("Number of software records >0 per institution")
-    plt.xlabel("Software records")
+    plt.ylabel("No. of Software records")
     plt.grid(which="major", linestyle="-", linewidth="0.5", color="black")
     plt.grid(which="minor", linestyle=":", linewidth="0.25", color="black")
     plt.minorticks_on
-    plt.savefig("./visualisation/sware_recs_per_inst.pdf")
+    plt.savefig("./sware_recs_per_inst.pdf")
     plt.show()
 
 #Figure 7. Crosstabulation of membership of Russell group with software records in repository.
@@ -165,31 +165,31 @@ def main():
 
 
     # Count URLs per error type
-    core_endpoints_sets_postCorrection_df = build_df_from_json('./results/Aug-11-2022_152911_sets_postcorrection.json')
-    analyse_endpoint_errors(core_endpoints_sets_postCorrection_df)
+    #core_endpoints_sets_postCorrection_df = build_df_from_json('./results/Aug-11-2022_152911_sets_postcorrection.json')
+    #analyse_endpoint_errors(core_endpoints_sets_postCorrection_df)
 
     # load and prep file
     df_all_data = get_dataframe(data_file, sort_key='name')
     df_filtered = filter_dataframe(df_all_data)
 
     #Unis with software in repository
-    vis_unis_with_sware(df_filtered)
+    #vis_unis_with_sware(df_filtered)
 
     # vis software by RIS type
-    vis_contains_sware_by_ris_type(df_filtered)
+    #vis_contains_sware_by_ris_type(df_filtered)
 
     # vis software by metadata format
-    vis_metdata_format_by_contains_sware(df_filtered)
+    #vis_metdata_format_by_contains_sware(df_filtered)
 
     # bar chart of unis with software only
     vis_unis_with_sware_barchart(df_filtered)
 
     # Correlate Russell Group members with s'ware
-    df_russell = get_dataframe("./russell_sld_sware.csv", sort_key="uni_sld")
+    #df_russell = get_dataframe("./russell_sld_sware.csv", sort_key="uni_sld")
     #russell_top_20_sw = df_russell.sort_values("Manual_Num_sw_records", ascending=False).head(20)
     #print("\n\nTop 20 Universities in order of number of software records in repository, and membership of Russell Group\n\n",russell_top_20_sw)
-    russell_ctp = vis_russell_group_correlation(df_russell)
-    chisq(subhead="Membership of Russell Group vs Software in repository", cross_tab_prop=russell_ctp)
+    #russell_ctp = vis_russell_group_correlation(df_russell)
+    #chisq(subhead="Membership of Russell Group vs Software in repository", cross_tab_prop=russell_ctp)
     
 
 
